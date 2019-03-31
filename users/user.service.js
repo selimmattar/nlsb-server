@@ -31,10 +31,8 @@ async function getAll() {
     return await User.find().select('-hash');
 }
 
-async function getByIds(id){
-
-    return await User.findById(id).select('-hash')
-
+async function getByIds(id) {
+    return await User.findById(id).select('-hash');
 }
 
 async function getById(id) {

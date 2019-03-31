@@ -13,7 +13,10 @@ function jwt() {
             '/users/register',
             '/users/',
             '/users/getByIds',
-            '/levels/add'
+            '/levels/add',
+            '/ExerciseF/add',
+            '/ExerciseF/',
+            '/ExerciseF/getById'
         ]
     });
 }
