@@ -19,6 +19,8 @@ app.use(jwt());
 app.use('/users', require('./users/users.controller'));
 app.use('/levels', require('./levels/levels.controller'));
 app.use('/ExerciseF', require('./exerciseF/exercisesF.controller'));
+app.use('/ExerciseQ', require('./exerciseQ/exercisesQ.controller'));
+app.use('/Grade', require('./grades/grade.controller'));
 
 // global error handler
 app.use(errorHandler);
