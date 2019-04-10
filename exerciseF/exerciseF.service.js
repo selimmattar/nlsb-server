@@ -15,6 +15,7 @@ async function add(EF) {
     exerciseF.question = EF.question;
     exerciseF.content = EF.content;
     exerciseF.correctAns = EF.correctAns;
+    exerciseF.lesson = EF.lesson;
     await exerciseF.save();
 }
 

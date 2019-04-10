@@ -16,7 +16,10 @@ function jwt() {
             '/levels/add',
             '/ExerciseF/add',
             '/ExerciseF/',
-            '/ExerciseF/getById'
+            '/ExerciseF/getById',
+            '/ExerciseQ/add',
+            '/ExerciseQ/',
+            '/ExerciseQ/getById'
         ]
     });
 }

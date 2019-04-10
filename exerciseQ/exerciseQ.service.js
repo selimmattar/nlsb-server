@@ -1,6 +1,4 @@
 ﻿const config = require('config.json');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('bcryptjs');
 const db = require('_helpers/db');
 const ExerciseQ = db.ExerciseQ;
 
@@ -17,6 +15,7 @@ async function add(EQ) {
     exerciseQ.secondSugg = EQ.secondSugg;
     exerciseQ.thirdSugg = EQ.thirdSugg;
     exerciseQ.correctAns = EQ.correctAns;
+    exerciseQ.lesson = EQ.lesson;
     await exerciseQ.save();
 }
 
