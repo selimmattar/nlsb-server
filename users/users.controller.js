@@ -11,6 +11,7 @@ router.get('/:id', getById);
 router.put('/:id', update);
 router.delete('/:id', _delete);
 router.post('/getByIds', getByIds);
+router.post('/getByEmail', getByEmail);
 
 module.exports = router;
 
@@ -32,6 +33,13 @@ function authenticate(req, res, next) {
 function getByIds(req, res, next) {
     userService
         .getByIds(req.body)
+        .then(user => (user ? res.json(user) : res.sendStatus(404)))
+        .catch(err => next(err));
+}
+
+function getByEmail(req, res, next) {
+    userService
+        .getByEmail(req.body)
         .then(user => (user ? res.json(user) : res.sendStatus(404)))
         .catch(err => next(err));
 }

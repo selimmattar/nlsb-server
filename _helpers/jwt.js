@@ -19,7 +19,8 @@ function jwt() {
             '/ExerciseF/getById',
             '/ExerciseQ/add',
             '/ExerciseQ/',
-            '/ExerciseQ/getById'
+            '/ExerciseQ/getById',
+            '/users/getByEmail'
         ]
     });
 }
