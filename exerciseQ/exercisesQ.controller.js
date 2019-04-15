@@ -6,7 +6,7 @@ const EQService = require('./exerciseQ.service');
 router.post('/add', add);
 router.get('/getById', getById);
 router.get('/', getAll);
-
+router.post('/update', updateAll);
 module.exports = router;
 
 function add(req, res, next) {
@@ -17,7 +17,14 @@ function add(req, res, next) {
             next(err);
         });
 }
-
+function updateAll(req, res, next) {
+    EQService.updateAll(req.body)
+        .then(() => res.json({}))
+        .catch(err => {
+            console.log(err);
+            next(err);
+        });
+}
 function getById(req, res, next) {
     EQService.getById(req.body)
         .then(() => res.json({}))
