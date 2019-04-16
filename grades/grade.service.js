@@ -12,7 +12,11 @@ module.exports = {
 };
 
 async function add(G) {
-    const grade = new Grade();
+    let grade = await Grade.findOne({
+        userId: G.userId,
+        questionId: G.questionId
+    });
+    if (!grade) grade = new Grade();
     grade.userId = G.userId;
     grade.questionId = G.questionId;
     grade.grade = G.grade;

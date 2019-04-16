@@ -5,7 +5,8 @@ const ExerciseQ = db.ExerciseQ;
 module.exports = {
     add,
     getAll,
-    getById
+    getById,
+    updateAll
 };
 
 async function add(EQ) {
@@ -18,11 +19,18 @@ async function add(EQ) {
     exerciseQ.lesson = EQ.lesson;
     await exerciseQ.save();
 }
+async function updateAll() {
+    const allEF = await ExerciseQ.find();
 
+    allEF.forEach(async element => {
+        element.correctAns = 'A';
+        await element.save();
+    });
+}
 async function getAll() {
-    return await exerciseQ.find();
+    return await ExerciseQ.find();
 }
 
 async function getById(id) {
-    return await exerciseQ.findById(id.id);
+    return await ExerciseQ.findById(id.id);
 }

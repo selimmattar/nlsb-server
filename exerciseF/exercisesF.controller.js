@@ -6,11 +6,21 @@ const EFService = require('./exerciseF.service');
 router.post('/add', add);
 router.get('/getById', getById);
 router.get('/', getAll);
+router.post('/update', updateAll);
 
 module.exports = router;
 
 function add(req, res, next) {
     EFService.add(req.body)
+        .then(() => res.json({}))
+        .catch(err => {
+            console.log(err);
+            next(err);
+        });
+}
+
+function updateAll(req, res, next) {
+    EFService.updateAll()
         .then(() => res.json({}))
         .catch(err => {
             console.log(err);

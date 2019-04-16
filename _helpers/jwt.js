@@ -16,10 +16,14 @@ function jwt() {
             '/levels/add',
             '/ExerciseF/add',
             '/ExerciseF/',
+            '/ExerciseF/update',
             '/ExerciseF/getById',
             '/ExerciseQ/add',
             '/ExerciseQ/',
-            '/ExerciseQ/getById'
+            '/ExerciseQ/getById',
+            '/ExerciseQ/update',
+            '/Grade/add'
+            '/users/getByEmail'
         ]
     });
 }

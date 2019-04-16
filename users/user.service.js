@@ -11,7 +11,8 @@ module.exports = {
     create,
     update,
     delete: _delete,
-    getByIds
+    getByIds,
+    getByEmail
 };
 
 async function authenticate({ username, password }) {
@@ -33,6 +34,10 @@ async function getAll() {
 
 async function getByIds(id) {
     return await User.findById(id).select('-hash');
+}
+
+async function getByEmail(userParam) {
+    return await User.findOne({ username: userParam.username });
 }
 
 async function getById(id) {

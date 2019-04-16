@@ -3,11 +3,12 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const db = require('_helpers/db');
 const ExerciseF = db.ExerciseF;
-const User = db.User;
+
 module.exports = {
     add,
     getAll,
-    getById
+    getById,
+    updateAll
 };
 
 async function add(EF) {
@@ -17,6 +18,16 @@ async function add(EF) {
     exerciseF.correctAns = EF.correctAns;
     exerciseF.lesson = EF.lesson;
     await exerciseF.save();
+}
+
+async function updateAll() {
+    const allEF = await ExerciseF.find();
+
+    allEF.forEach(async element => {
+        element.content =
+      'I (go) & to dahdah yesterday and I (eat) & icecream then I (see) & a scary clown';
+        await element.save();
+    });
 }
 
 async function getAll() {
