@@ -22,7 +22,7 @@ function jwt() {
             '/ExerciseQ/',
             '/ExerciseQ/getById',
             '/ExerciseQ/update',
-            '/Grade/add'
+            '/Grade/add',
             '/users/getByEmail'
         ]
     });

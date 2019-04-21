@@ -20,7 +20,7 @@ function add(req, res, next) {
 }
 
 function updateAll(req, res, next) {
-    EFService.updateAll()
+    EFService.updateAll(req.body)
         .then(() => res.json({}))
         .catch(err => {
             console.log(err);
