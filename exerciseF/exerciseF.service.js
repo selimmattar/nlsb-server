@@ -20,14 +20,20 @@ async function add(EF) {
     await exerciseF.save();
 }
 
-async function updateAll() {
-    const allEF = await ExerciseF.find();
+async function updateAll(E) {
+    const ex = await ExerciseF.findById(E.id);
+    // ex.content = E.content;
+    ex.correctAns = E.correctAns;
+    // ex.question = E.question;
+    await ex.save();
 
-    allEF.forEach(async element => {
-        element.content =
-      'I (go) & to dahdah yesterday and I (eat) & icecream then I (see) & a scary clown';
-        await element.save();
-    });
+    /*
+     *  allEF.forEach(async element => {
+     * element.content =
+     * 'I (go) & to dahdah yesterday and I (eat) & icecream then I (see) & a scary clown';
+     * await element.save();
+     * });
+     */
 }
 
 async function getAll() {

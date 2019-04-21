@@ -12,15 +12,19 @@ module.exports = {
 };
 
 async function add(G) {
-    let grade = await Grade.findOne({
+    console.log(G);
+    let grade = new Grade();
+    if (
+        await Grade.findOne({
+            userId: G.userId,
+            questionId: G.questionId
+        })
+    ) grade = await Grade.findOne({
         userId: G.userId,
         questionId: G.questionId
     });
-    if (!grade) grade = new Grade();
-    grade.userId = G.userId;
-    grade.questionId = G.questionId;
-    grade.grade = G.grade;
-    grade.lesson = G.lesson;
+
+    Object.assign(grade, G);
     await grade.save();
 }
 
