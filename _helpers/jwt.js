@@ -13,6 +13,7 @@ function jwt() {
             '/users/register',
             '/users/',
             '/users/getByIds',
+            '/users/updateLesson',
             '/levels/add',
             '/ExerciseF/add',
             '/ExerciseF/',
