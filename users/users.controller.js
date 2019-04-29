@@ -9,6 +9,7 @@ router.get('/', getAll);
 router.get('/current', getCurrent);
 router.get('/:id', getById);
 router.put('/:id', update);
+router.post('/updateLesson', updateLesson);
 router.delete('/:id', _delete);
 router.post('/getByIds', getByIds);
 router.post('/getByEmail', getByEmail);
@@ -81,7 +82,13 @@ function getById(req, res, next) {
 
 function update(req, res, next) {
     userService
-        .update(req.params.id, req.body)
+        .update(req.body)
+        .then(() => res.json({}))
+        .catch(err => next(err));
+}
+function updateLesson(req, res, next) {
+    userService
+        .updateLesson(req.body)
         .then(() => res.json({}))
         .catch(err => next(err));
 }

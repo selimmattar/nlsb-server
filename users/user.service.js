@@ -10,6 +10,7 @@ module.exports = {
     getById,
     create,
     update,
+    updateLesson,
     delete: _delete,
     getByIds,
     getByEmail
@@ -80,6 +81,14 @@ async function update(id, userParam) {
 
     // copy userParam properties to user
     Object.assign(user, userParam);
+
+    await user.save();
+}
+async function updateLesson(reqBody) {
+    const user = await User.findById(reqBody.id);
+    // validate
+    if (!user) throw 'User not found';
+    user.lesson = reqBody.lesson;
 
     await user.save();
 }
