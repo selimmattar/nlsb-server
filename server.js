@@ -12,8 +12,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-// use JWT auth to secure the api
-app.use(jwt());
+/*
+ * use JWT auth to secure the api
+ *app.use(jwt());
+ */
 
 // api routes
 app.use('/users', require('./users/users.controller'));
@@ -21,7 +23,7 @@ app.use('/levels', require('./levels/levels.controller'));
 app.use('/ExerciseF', require('./exerciseF/exercisesF.controller'));
 app.use('/ExerciseQ', require('./exerciseQ/exercisesQ.controller'));
 app.use('/Grade', require('./grades/grade.controller'));
-
+app.use('/WebScrapper', require('./webscrapper.controller'));
 // global error handler
 app.use(errorHandler);
 

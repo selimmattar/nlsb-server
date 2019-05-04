@@ -24,7 +24,8 @@ function jwt() {
             '/ExerciseQ/getById',
             '/ExerciseQ/update',
             '/Grade/add',
-            '/users/getByEmail'
+            '/users/getByEmail',
+            '/WebScrapper/generateSentence'
         ]
     });
 }
