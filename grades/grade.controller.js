@@ -7,6 +7,7 @@ router.post('/add', add);
 router.get('/getById', getById);
 router.get('/', getAll);
 router.delete('/:id', _delete);
+router.post('/getByUser', getByUser);
 module.exports = router;
 
 function add(req, res, next) {
@@ -25,6 +26,13 @@ function getById(req, res, next) {
             console.log(err);
             next(err);
         });
+}
+
+function getByUser(req, res, next) {
+  GService
+      .getByUser(req.body)
+      .then(grade => (grade ? res.json(grade) : res.sendStatus(404)))
+      .catch(err => next(err));
 }
 
 function getAll(req, res, next) {

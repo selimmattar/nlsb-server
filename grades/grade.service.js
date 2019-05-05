@@ -8,6 +8,7 @@ module.exports = {
     add,
     getAll,
     getById,
+    getByUser,
     _delete
 };
 
@@ -34,6 +35,10 @@ async function getAll() {
 
 async function getById(id) {
     return await Grade.findById(id.id);
+}
+
+async function getByUser(userId) {
+  return await Grade.find(userId);
 }
 
 async function _delete(id) {

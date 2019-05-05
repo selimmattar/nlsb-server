@@ -24,6 +24,8 @@ function jwt() {
             '/ExerciseQ/getById',
             '/ExerciseQ/update',
             '/Grade/add',
+            '/Grade/',
+            '/Grade/getByUser',
             '/users/getByEmail'
         ]
     });
