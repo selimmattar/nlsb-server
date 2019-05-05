@@ -10,6 +10,7 @@ router.get('/current', getCurrent);
 router.get('/:id', getById);
 router.put('/:id', update);
 router.post('/updateLesson', updateLesson);
+router.post('/updateUser', updateUser);
 router.delete('/:id', _delete);
 router.post('/getByIds', getByIds);
 router.post('/getByEmail', getByEmail);
@@ -91,6 +92,13 @@ function updateLesson(req, res, next) {
         .updateLesson(req.body)
         .then(() => res.json({}))
         .catch(err => next(err));
+}
+
+function updateUser(req, res, next) {
+  userService
+      .updateUser(req.body)
+      .then(() => res.json({}))
+      .catch(err => next(err));
 }
 
 function _delete(req, res, next) {

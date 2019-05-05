@@ -14,6 +14,7 @@ function jwt() {
             '/users/',
             '/users/getByIds',
             '/users/updateLesson',
+            '/users/updateUser',
             '/levels/add',
             '/ExerciseF/add',
             '/ExerciseF/',
