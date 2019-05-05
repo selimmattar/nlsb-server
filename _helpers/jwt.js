@@ -26,7 +26,8 @@ function jwt() {
             '/Grade/add',
             '/Grade/',
             '/Grade/getByUser',
-            '/users/getByEmail'
+            '/users/getByEmail',
+            '/WebScrapper/generateSentence',
         ]
     });
 }
