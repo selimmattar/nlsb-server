@@ -1,4 +1,4 @@
 ﻿{
-  "connectionString": "mongodb://localhost:27017/nlsb",
+  "connectionString": "mongodb://selimmattar:123456a@ds040309.mlab.com:40309/nlsb",
   "secret": "englot"
 }
