@@ -13,7 +13,8 @@ module.exports = {
     updateLesson,
     delete: _delete,
     getByIds,
-    getByEmail
+    getByEmail,
+    updateUser,
 };
 
 async function authenticate({ username, password }) {
@@ -84,11 +85,37 @@ async function update(id, userParam) {
 
     await user.save();
 }
+
 async function updateLesson(reqBody) {
     const user = await User.findById(reqBody.id);
     // validate
     if (!user) throw 'User not found';
     user.lesson = reqBody.lesson;
+
+    await user.save();
+}
+
+async function updateUser(reqBody) {
+  const user = await User.findById(reqBody.id);
+
+    // validate
+    if (!user) throw 'User not found';
+    if (
+        user.username !== reqBody.username &&
+    (await User.findOne({ username: reqBody.username }))
+    ) {
+        throw 'Username "' + reqBody.username + '" is already taken';
+    }
+
+    // hash password if it was entered
+    if (reqBody.password) {
+      reqBody.hash = bcrypt.hashSync(reqBody.password, 10);
+    }
+console.log('reqbody' , reqBody);
+console.log('user' , user);
+
+    // copy userParam properties to user
+    Object.assign(user, reqBody);
 
     await user.save();
 }

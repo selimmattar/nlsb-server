@@ -14,6 +14,7 @@ function jwt() {
             '/users/',
             '/users/getByIds',
             '/users/updateLesson',
+            '/users/updateUser',
             '/levels/add',
             '/ExerciseF/add',
             '/ExerciseF/',
@@ -24,8 +25,10 @@ function jwt() {
             '/ExerciseQ/getById',
             '/ExerciseQ/update',
             '/Grade/add',
+            '/Grade/',
+            '/Grade/getByUser',
             '/users/getByEmail',
-            '/WebScrapper/generateSentence'
+            '/WebScrapper/generateSentence',
         ]
     });
 }
